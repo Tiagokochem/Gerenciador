@@ -7,11 +7,11 @@ namespace Web.Models
     [Table("Parceiros")]
     public class Parceiro
     {
-        public int CategoriaId { get; set; }
+        public int ParceiroId { get; set; }
         [Display(Name = "Nome")]
         [Required]
         [StringLength(100)]
-        public string CategoriaNome { get; set; }
+        public string ParceiroNome { get; set; }
 
         [Required]
         [StringLength(200)]

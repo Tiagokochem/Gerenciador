@@ -8,10 +8,10 @@ namespace Web.Models
     {
         public int PlanoId { get; set; }
 
-        [Required(ErrorMessage="O nome do parceiro deve ser informado")]
-        [Display(Name = "Nome do parceiro")]
+        [Required(ErrorMessage="O nome do plano deve ser informado")]
+        [Display(Name = "Nome do plano")]
         [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2} caracteres")]
-        public string Nome { get; set; }
+        public string PlanoNome { get; set; }
 
         [Required(ErrorMessage = "A descrição do plano deve ser informada")]
         [Display(Name = "Descrição do plano")]
@@ -31,6 +31,11 @@ namespace Web.Models
         [Range(1, 99.99,ErrorMessage ="O preço deve estar entre 1 e 99,99")]
         public decimal Preco { get; set; }
 
+        [Display(Name = "Desconto")]
+        [Column(TypeName = "decimal(18,2)")]
+        [Range(1, 99.99, ErrorMessage = "O desconto deve estar entre 1 e 99,99")]
+        public decimal Desconto { get; set; }
+
         [Display(Name = "Caminho Imagem Normal")]
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
         public string ImagemUrl { get; set; }
@@ -42,11 +47,14 @@ namespace Web.Models
         [Display(Name = "Preferido?")]
         public bool IsPlanoPreferido { get; set; }
 
+        [Display(Name = "Preferido?")]
+        public bool IsPlanoAtivo { get; set; }
+
         [Display(Name = "Estoque")]
         public bool EmEstoque { get; set; }
 
         [Display(Name = "Categoria")]
         public int CategoriaId { get; set; }
-        public virtual Parceiro Categoria { get; set; }
+        public virtual Parceiro Parceiro { get; set; }
     }
 }
