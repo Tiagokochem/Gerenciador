@@ -13,17 +13,11 @@ namespace Web.Models
         [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2} caracteres")]
         public string PlanoNome { get; set; }
 
-        [Required(ErrorMessage = "A descrição do plano deve ser informada")]
-        [Display(Name = "Descrição do plano")]
-        [MinLength(20, ErrorMessage = "Descrição deve ter no mínimo {1} caracteres")]
-        [MaxLength(200, ErrorMessage = "Descrição não pode exceder {1} caracteres")]
-        public string DescricaoCurta { get; set; }
-
-        [Required(ErrorMessage = "O descrição detalhada do parceiro deve ser informada")]
-        [Display(Name = "Descrição detalhada do plano")]
+        [Required(ErrorMessage = "O termo do plano deve ser informado")]
+        [Display(Name = "Termo de uso do plano")]
         [MinLength(20, ErrorMessage = "Descrição detalhada deve ter no mínimo {1} caracteres")]
-        [MaxLength(200, ErrorMessage = "Descrição detalhada pode exceder {1} caracteres")]
-        public string DescricaoDetalhada { get; set; }
+        [MaxLength(5000, ErrorMessage = "Descrição detalhada pode exceder {1} caracteres")]
+        public string TermoPlano { get; set; }
 
         [Required(ErrorMessage="Informe o preço do produto")]
         [Display(Name = "Preço")]
@@ -40,9 +34,6 @@ namespace Web.Models
         [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
         public string ImagemUrl { get; set; }
 
-        [Display(Name = "Caminho Imagem Miniatura")]
-        [StringLength(200, ErrorMessage = "O {0} deve ter no máximo {1} caracteres")]
-        public string ImagemThumbnailUrl { get; set; }
 
         [Display(Name = "Preferido?")]
         public bool IsPlanoPreferido { get; set; }
