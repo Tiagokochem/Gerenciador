@@ -1,6 +1,6 @@
 ﻿using Web.Models;
 using Web.Repositories.Interfaces;
-//using Web.ViewModels;
+using Web.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +19,17 @@ namespace Web.Controllers
             _planoRepository = planoRepository;
         }
 
-        public IActionResult List(/*string parceiro*/)
+        public IActionResult List()/*string parceiro*/
         {
 
-            var planos = _planoRepository.Planos;
-            return View(planos);
-            //string _categoria = categoria;
-        //    IEnumerable<Plano> planos;
-        //    string planoAtual = string.Empty;
+          var planos = _planoRepository.Planos;
+          return View(planos);
+
+
+
+          //string _categoria = categoria;
+          //IEnumerable<Plano> planos;
+          //string planoAtual = string.Empty;
 
         //    if (string.IsNullOrEmpty(parceiro))
         //    {
@@ -50,7 +53,7 @@ namespace Web.Controllers
         //        categoriaAtual = categoria;
         //    }
 
-        //    var lancheListViewModel = new LancheListViewModel
+        var planoListViewModel = new PlanoListViewModel
         //    {
         //        Lanches = lanches,
         //        CategoriaAtual = categoriaAtual
