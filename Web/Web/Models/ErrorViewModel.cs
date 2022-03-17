@@ -1,6 +1,6 @@
 using System;
 
-namespace LanchesMac.Models
+namespace Web.Models
 {
     public class ErrorViewModel
     {

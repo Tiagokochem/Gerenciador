@@ -1,8 +1,7 @@
-﻿using LanchesMac.Models;
+﻿using Web.Models;
 using Microsoft.AspNetCore.Identity;
 //using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Web.Models;
 
 namespace Web.Context
 {

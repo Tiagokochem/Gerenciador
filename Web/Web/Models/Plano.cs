@@ -13,6 +13,12 @@ namespace Web.Models
         [StringLength(80, MinimumLength = 10, ErrorMessage = "O {0} deve ter no mínimo {1} e no máximo {2} caracteres")]
         public string PlanoNome { get; set; }
 
+        [Required(ErrorMessage = "O resumo do plano deve ser informado")]
+        [Display(Name = "Breve resumo do plano")]
+        [MinLength(20, ErrorMessage = "Descrição resumida deve ter no mínimo {1} caracteres")]
+        [MaxLength(200, ErrorMessage = "Descrição resumida pode exceder {1} caracteres")]
+        public string DescricaoCurta { get; set; }
+
         [Required(ErrorMessage = "O termo do plano deve ser informado")]
         [Display(Name = "Termo de uso do plano")]
         [MinLength(20, ErrorMessage = "Descrição detalhada deve ter no mínimo {1} caracteres")]

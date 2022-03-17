@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Web.Models.Plano> @*PlanoListViewModel*@
+
+<h2>@Model.CategoriaAtual</h2>
+
+<div class="row">
+    @foreach (Plano plano in Model.Planos)
+    {
+        @Html.Partial("_PlanosResumo", plano)
+        <partial name="_PlanoResumo" for="@plano" />
+    }
+</div>
