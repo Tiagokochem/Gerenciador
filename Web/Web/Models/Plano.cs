@@ -44,7 +44,7 @@ namespace Web.Models
         [Display(Name = "Preferido?")]
         public bool IsPlanoPreferido { get; set; }
 
-        [Display(Name = "Preferido?")]
+        [Display(Name = "Ativo?")]
         public bool IsPlanoAtivo { get; set; }
 
         [Display(Name = "Estoque")]
