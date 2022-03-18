@@ -19,6 +19,12 @@ namespace Web.Models
         [MaxLength(200, ErrorMessage = "Descrição resumida pode exceder {1} caracteres")]
         public string DescricaoCurta { get; set; }
 
+        [Required(ErrorMessage = "Categoria deve ser informado")]
+        [Display(Name = "Categoria")]
+        [MinLength(20, ErrorMessage = "Descrição resumida deve ter no mínimo {1} caracteres")]
+        [MaxLength(200, ErrorMessage = "Descrição resumida pode exceder {1} caracteres")]
+        public string Categoria { get; set; }
+
         [Required(ErrorMessage = "O termo do plano deve ser informado")]
         [Display(Name = "Termo de uso do plano")]
         [MinLength(20, ErrorMessage = "Descrição detalhada deve ter no mínimo {1} caracteres")]

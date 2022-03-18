@@ -11,9 +11,7 @@ namespace Web.Context
         { }
         public DbSet<Parceiro> Parceiros { get; set; }
         public DbSet<Plano> Planos { get; set; }
-
-
-        //public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
+        public DbSet<CarrinhoCompraItem> CarrinhoCompraItens { get; set; }
         //public DbSet<Pedido> Pedidos { get; set; }
        // public DbSet<PedidoDetalhe> PedidoDetalhes { get; set; }
     }

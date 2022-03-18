@@ -27,33 +27,33 @@ namespace Web.Controllers
 
 
 
-          //string _categoria = categoria;
-          //IEnumerable<Plano> planos;
-          //string planoAtual = string.Empty;
+            //string _categoria = categoria;
+            //IEnumerable<Plano> planos;
+            //string planoAtual = string.Empty;
 
-        //    if (string.IsNullOrEmpty(parceiro))
-        //    {
-        //        planos = _planosRepository.Planos.OrderBy(p => p.LancheId);
-        //        categoriaAtual = "Todos os lanches";
-        //    }
-        //    else
-        //    {
-        //        //este codigo foi alterado por macoratti
-        //        ///////////////////////////////////////////////////////////////////////////////////
-        //        //if (string.Equals("Normal", _categoria, StringComparison.OrdinalIgnoreCase))
-        //        //    lanches = _lancheRepository.Lanches.Where(p => p.Categoria.CategoriaNome.Equals("Normal")).OrderBy(p => p.Nome);
-        //        //else
-        //        //    lanches = _lancheRepository.Lanches.Where(p => p.Categoria.CategoriaNome.Equals("Natural")).OrderBy(p => p.Nome);
-        //        ////////////////////////////////////////////////////////////////////////////////////
+            //    if (string.IsNullOrEmpty(parceiro))
+            //    {
+            //        planos = _planosRepository.Planos.OrderBy(p => p.LancheId);
+            //        categoriaAtual = "Todos os lanches";
+            //    }
+            //    else
+            //    {
+            //        //este codigo foi alterado por macoratti
+            //        ///////////////////////////////////////////////////////////////////////////////////
+            //        //if (string.Equals("Normal", _categoria, StringComparison.OrdinalIgnoreCase))
+            //        //    lanches = _lancheRepository.Lanches.Where(p => p.Categoria.CategoriaNome.Equals("Normal")).OrderBy(p => p.Nome);
+            //        //else
+            //        //    lanches = _lancheRepository.Lanches.Where(p => p.Categoria.CategoriaNome.Equals("Natural")).OrderBy(p => p.Nome);
+            //        ////////////////////////////////////////////////////////////////////////////////////
 
-        //        lanches = _lancheRepository.Lanches
-        //                   .Where(p => p.Categoria.CategoriaNome.Equals(categoria))
-        //                   .OrderBy(p => p.Nome);
+            //        lanches = _lancheRepository.Lanches
+            //                   .Where(p => p.Categoria.CategoriaNome.Equals(categoria))
+            //                   .OrderBy(p => p.Nome);
 
-        //        categoriaAtual = categoria;
-        //    }
+            //        categoriaAtual = categoria;
+            //    }
 
-        var planoListViewModel = new PlanoListViewModel
+            var planoListViewModel = new PlanoListViewModel;
         //    {
         //        Lanches = lanches,
         //        CategoriaAtual = categoriaAtual
