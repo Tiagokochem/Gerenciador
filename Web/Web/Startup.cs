@@ -45,18 +45,18 @@ namespace Web
             //services.AddTransient<ICategoriaRepository, CategoriaRepository>();
             services.AddTransient<IPedidoRepository, PedidoRepository>();
 
-            services.AddScoped<RelatorioVendasService>();
-            services.AddScoped<GraficoVendasService>();
+            //services.AddScoped<RelatorioVendasService>();
+            //services.AddScoped<GraficoVendasService>();
 
             //cria um objeto Scoped, ou seja um objeto que esta associado a requisição
             //isso significa que se duas pessoas solicitarem o objeto CarrinhoCompra ao  mesmo tempo
             //elas vão obter instâncias diferentes
-            services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
+            //services.AddScoped(sp => CarrinhoCompra.GetCarrinho(sp));
 
-            services.AddControllersWithViews();
-            services.AddPaging(options => {
-                options.ViewName = "Bootstrap4";
-                options.PageParameterName = "pageindex";
+            //services.AddControllersWithViews();
+            //services.AddPaging(options => {
+            //    options.ViewName = "Bootstrap4";
+            //    options.PageParameterName = "pageindex";
             });
 
             //configura o uso da Sessão
