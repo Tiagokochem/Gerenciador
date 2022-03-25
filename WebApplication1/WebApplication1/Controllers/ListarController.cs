@@ -31,13 +31,23 @@ namespace WebApplication1.Controllers
         public IActionResult ApagarConfirmacao(int Id)
         {
             ParceiroModel parceiro = _listarRepositorio.ListarPorId(Id);
-            return View();
+            return View(parceiro);
         }
 
         public IActionResult Apagar(int id)
         {
-            _listarRepositorio.Apagar(id);
-            return RedirectToAction("Index");
+            try
+            {
+                bool apagado = _listarRepositorio.Apagar(id);
+
+                if (apagado) TempData["MensagemSucesso"] = "Contato apagado com sucesso!"; else TempData["MensagemErro"] = "Ops, não conseguimos cadastrar seu contato, tente novamante!";
+                return RedirectToAction("Index");
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos apagar seu contato, tente novamante, detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
         }
 
         [HttpPost]
@@ -47,35 +57,36 @@ namespace WebApplication1.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _listarRepositorio.Adicionar(parceiro);
+                    parceiro = _listarRepositorio.Adicionar(parceiro);
                     TempData["MesagemSucesso"] = "Contato Cadastrado com sucesso";
                     return RedirectToAction("Index");
                 }
                 return View(parceiro);
             }
-            catch (System.Exception erro)
+            catch (Exception erro)
             {
                 TempData["MesagemErro"] = $"Ops, não foi possível cadastrar seu contato, tente novamente, problema: {erro.Message}";
-                return RedirectToAction("Index"); ;
+                return RedirectToAction("Index"); 
             }
         }
+
         [HttpPost]
         public IActionResult Alterar(ParceiroModel parceiro)
         {
-
             try
             {
                 if (ModelState.IsValid)
                 {
-                    _listarRepositorio.Atualizar(parceiro);
+                    parceiro = _listarRepositorio.Atualizar(parceiro);
+                    TempData["MensagemSucesso"] = "Contato alterado com sucesso!";
                     return RedirectToAction("Index");
                 }
-                return View("Editar", parceiro);
-            }
-            catch (System.Exception erro)
-            {
 
-                TempData["MesagemErro"] = $"Ops, não foi possível cadastrar seu contato, tente novamente, problema: {erro.Message}";
+                return View(parceiro);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos atualizar seu contato, tente novamante, detalhe do erro: {erro.Message}";
                 return RedirectToAction("Index");
             }
         }
