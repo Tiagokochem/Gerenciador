@@ -4,8 +4,8 @@
     ViewData["Title"] = "Listagem de cadastros";
 }
 
-//colocar autorized
-
+@*//colocar autorized
+*@
 
 
 <div class="text-center">
@@ -14,75 +14,78 @@
 
         <a class="btn btn-primary" role="button" asp-controller="Listar" asp-action="Cadastrar">Adicionar novo Contato</a>
     </div>
-     
-     @if (TempData["MensagemSucesso"] != null)
+
+    @if (TempData["MensagemSucesso"] != null)
     {
         <div class="alert alert-success" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemSucesso"]
-        </div> 
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemSucesso"]
+        </div>
     }
-     
+
     <br />
 
-      @if (TempData["MensagemErro"] != null)
+    @if (TempData["MensagemErro"] != null)
     {
-     <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemErro"]
-     </div>
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
     }
-       <br />
+    <br />
 
     <h1 class="display-4">Listagem de contatos</h1>
-    <div class="table-responsive">
 
-        <table class="table caption-top">
-            <caption>Lista de Parceiros</caption>
-            <thead>
-                <tr>
-                    <th scope="col">Id</th>
-                    <th scope="col">Fantasia</th>
-                    <th scope="col">Razão Social</th>
-                    <th scope="col">Nome do Responsável</th>
-                    <th scope="col">E-mail</th>
-                    <th scope="col">Cep</th>
-                    <th scope="col">Cidade</th>
-                    <th scope="col">Estado</th>
-                    <th scope="col">Telefone</th>
-                    <th scope="col">Data de Cadastro</th>
-                    <th scope="col">Data de Alteração</th>
+    <table id="table-parceiros" class="display" style="width:100%">
 
-                </tr>
-            </thead>
-            <tbody>
-                @if (Model != null && Model.Any())
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Fantasia</th>
+                <th scope="col">Razão Social</th>
+                <th scope="col">Nome do Responsável</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Cep</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Estado</th>
+                <th scope="col">Telefone</th>
+                <th scope="col">Data de Cadastro</th>
+                <th scope="col">Data de Alteração</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (ParceiroModel parceiro in Model)
                 {
-                    foreach (ParceiroModel parceiro in Model)
-                    {
-                        <tr>
-                            <th scope="row">@parceiro.Id</th>
-                            <td>@parceiro.ParceiroFantasia</td>
-                            <td>@parceiro.ParceiroRazaoSocial</td>
-                            <td>@parceiro.ParceiroNome</td>
-                            <td>@parceiro.Email</td>
-                            <td>@parceiro.ParceiroCep</td>
-                            <td>@parceiro.ParceiroCidade</td>
-                            <td>@parceiro.ParceiroEstado</td>
-                            <td>@parceiro.ParceiroTelefone</td>
-                            <td>@parceiro.DataDeCadastro</td>
-                            <td>@parceiro.DataDeAlteracao</td>
+                    <tr>
+                        <th scope="row">@parceiro.Id</th>
+                        <td>@parceiro.ParceiroFantasia</td>
+                        <td>@parceiro.ParceiroRazaoSocial</td>
+                        <td>@parceiro.ParceiroNome</td>
+                        <td>@parceiro.Email</td>
+                        <td>@parceiro.ParceiroCep</td>
+                        <td>@parceiro.ParceiroCidade</td>
+                        <td>@parceiro.ParceiroEstado</td>
+                        <td>@parceiro.ParceiroTelefone</td>
+                        <td>@parceiro.DataDeCadastro</td>
+                        <td>@parceiro.DataDeAlteracao</td>
 
-                            <th>
-                                <div class="btn-group" role="group" aral-label="Basic example">
-                                    <a role="button" class="btn btn-primary" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="Editar">Editar</a>
-                                    <a role="button" class="btn btn-danger" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
-                                </div>
-                            </th>
-                        </tr>
-                    }
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="button" class="btn btn-primary" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="Editar">Editar</a>
+                                <a role="button" class="btn btn-danger" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
+                            </div>
+                        </td>
+                    </tr>
                 }
-            </tbody>
-        </table>
-        <div>
-        </div>
+            }
+            
+            else
+            {
+            <tr class="odd"><td valign="top" colspan="5">Nenhum contato encontrado</td></tr>
+            }
+        </tbody>
+    </table>
+</div>
