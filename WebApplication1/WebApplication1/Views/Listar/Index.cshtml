@@ -1,8 +1,12 @@
-﻿@{
+﻿@model List<ParceiroModel>
+
+@{
     ViewData["Title"] = "Listagem de cadastros";
 }
 
 //colocar autorized
+
+
 
 <div class="text-center">
 
@@ -10,60 +14,75 @@
 
         <a class="btn btn-primary" role="button" asp-controller="Listar" asp-action="Cadastrar">Adicionar novo Contato</a>
     </div>
-
+     
+     @if (TempData["MensagemSucesso"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemSucesso"]
+    </div> 
+    }
+     
     <br />
+
+      @if (TempData["MensagemErro"] != null)
+    {
+        
+    <div class="alert alert-danger" role="alert">
+        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+        @TempData["MensagemErro"]
+    </div>
+    }
+       <br />
 
     <h1 class="display-4">Listagem de contatos</h1>
     <div class="table-responsive">
 
         <table class="table caption-top">
-            <caption>List of users</caption>
+            <caption>Lista de Parceiros</caption>
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
                     <th scope="col">Fantasia</th>
                     <th scope="col">Razão Social</th>
+                    <th scope="col">Nome do Responsável</th>
                     <th scope="col">E-mail</th>
+                    <th scope="col">Cep</th>
+                    <th scope="col">Cidade</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Telefone</th>
+                    <th scope="col">Data de Cadastro</th>
+                    <th scope="col">Data de Alteração</th>
 
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                    <th>
-                        <div class="btn-group" role="group" aral-label="Basic example">
-                            <a role="button" class="btn btn-primary" type="submit" asp-controller="Listar" asp-action="Editar">Editar</a>
-                            <a role="button" class="btn btn-danger" type="submit" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                    <th>
-                        <div class="btn-group" role="group" aral-label="Basic example">
-                            <a role="button" class="btn btn-primary" type="submit" asp-controller="Listar" asp-action="Editar">Editar</a>
-                            <a role="button" class="btn btn-danger" type="submit" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
-                        </div>
-                    </th>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>twitter</td>
-                    <th>
-                        <div class="btn-group" role="group" aral-label="Basic example">
-                            <a role="button" class="btn btn-primary" type="submit" asp-controller="Listar" asp-action="Editar">Editar</a>
-                            <a role="button" class="btn btn-danger" type="submit" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
-                        </div>
-                    </th>
-                </tr>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (ParceiroModel parceiro in Model)
+                    {
+                        <tr>
+                            <th scope="row">@parceiro.Id</th>
+                            <td>@parceiro.ParceiroFantasia</td>
+                            <td>@parceiro.ParceiroRazaoSocial</td>
+                            <td>@parceiro.ParceiroNome</td>
+                            <td>@parceiro.Email</td>
+                            <td>@parceiro.ParceiroCep</td>
+                            <td>@parceiro.ParceiroCidade</td>
+                            <td>@parceiro.ParceiroEstado</td>
+                            <td>@parceiro.ParceiroTelefone</td>
+                            <td>@parceiro.DataDeCadastro</td>
+                            <td>@parceiro.DataDeAlteracao</td>
+
+                            <th>
+                                <div class="btn-group" role="group" aral-label="Basic example">
+                                    <a role="button" class="btn btn-primary" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="Editar">Editar</a>
+                                    <a role="button" class="btn btn-danger" type="submit" asp-route-id="@parceiro.Id" asp-controller="Listar" asp-action="ApagarConfirmacao">Apagar</a>
+                                </div>
+                            </th>
+                        </tr>
+                    }
+                }
             </tbody>
         </table>
         <div>

@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using WebApplication1.Data;
+using WebApplication1.Repositorio;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+builder.Services.AddScoped<IListarRepositorio, ListarRepositorio>();
 
 //builder.Services.AddEntityFrameworkSqlServer()
     //.AddDbContext<ApplicationDbContext>(o => o.UseSqlServer(CreateBuilder.GetConnectionString("DefaultConnection");

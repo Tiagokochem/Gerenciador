@@ -1,27 +1,79 @@
-﻿
+﻿@model ParceiroModel
+@{
+    ViewData["Title"] = "Cadastrar um novo Parceiro";
+}
+
+
 <div class="text">
 
     <h1 class="display-4">Cadastrar um contato</h1>
     <div>
 
-        <form>
+        <form asp-controller="Listar" asp-action="Cadastrar" method="post">
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" aria-describedby="emailHelp" placeholder="Insira o e-mail">
+                <input type="email" asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Insira o e-mail">
                 <small id="emailHelp" class="form-text text-muted">Digite seu melhor e-mail.</small>
+                @Html.ValidationMessageFor(x=> x.Email)
             </div>
+            <br />
             <div class="form-group">
-                <label for="senha">Senha</label>
-                <input type="senha" class="form-control" placeholder="Senha">
+                <label for="Razao">Razão Social</label>
+                <input type="Razao" asp-for="ParceiroRazaoSocial" class="form-control" placeholder="Razão Social">
+                @Html.ValidationMessageFor(x=> x.ParceiroRazaoSocial)
             </div>
+            <br />
+            <div class="form-group">
+                <label for="Nome">Nome do responsável</label>
+                <input type="Nome" asp-for="ParceiroNome" class="form-control" placeholder="Nome">
+                @Html.ValidationMessageFor(x=> x.ParceiroNome)
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Fantasia">Fantasia</label>
+                <input type="Fantasia" asp-for="ParceiroFantasia" class="form-control" placeholder="Fantasia">
+                @Html.ValidationMessageFor(x=> x.ParceiroFantasia)
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="CEP">CEP</label>
+                <input type="CEP" asp-for="ParceiroCep" class="form-control" placeholder="CEP">
+                @Html.ValidationMessageFor(x=> x.ParceiroCep)
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Cidade">Cidade</label>
+                <input type="Cidade" asp-for="ParceiroCidade" class="form-control" placeholder="Cidade">
+                @Html.ValidationMessageFor(x=> x.ParceiroCidade)
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Estado">Estado</label>
+                <input type="Estado" asp-for="ParceiroEstado" class="form-control" placeholder="Estado">
+                @Html.ValidationMessageFor(x=> x.ParceiroEstado)
+
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Telefone">Telefone</label>
+                <input type="Telefone" asp-for="ParceiroTelefone" class="form-control" placeholder="Telefone">
+                @Html.ValidationMessageFor(x=> x.ParceiroTelefone)
+
+            </div>
+            <br />
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="Basico">
                 <label class="form-check-label" for="exampleCheck1">Plano Básico</label>
             </div>
+
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="Completo">
                 <label class="form-check-label" for="exampleCheck1">Plano Completo</label>
             </div>
+
             <button type="submit" class="btn btn-primary">Adicionar</button>
             <a class="btn btn-secondary" asp-controller="Listar" asp-action="index" role="button">Voltar</a>
         </form>
