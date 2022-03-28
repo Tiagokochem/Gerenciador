@@ -4,8 +4,6 @@
     ViewData["Title"] = "Listagem de cadastros";
 }
 
-@*//colocar autorized
-*@
 
 
 <div class="text-center">
@@ -15,29 +13,30 @@
         <a class="btn btn-primary" role="button" asp-controller="Listar" asp-action="Cadastrar">Adicionar novo Contato</a>
     </div>
 
-    @if (TempData["MensagemSucesso"] != null)
+    <br />
+
+  @if (TempData["MensagemSucesso"] != null)
     {
         <div class="alert alert-success" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
             @TempData["MensagemSucesso"]
         </div>
     }
 
     <br />
 
-    @if (TempData["MensagemErro"] != null)
+     @if (TempData["MensagemErro"] != null)
     {
         <div class="alert alert-danger" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
             @TempData["MensagemErro"]
         </div>
     }
     <br />
 
     <h1 class="display-4">Listagem de contatos</h1>
-
-    <table id="table-parceiros" class="display" style="width:100%">
-
+      
+    <table id="tabela" class="table" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">Id</th>
@@ -51,13 +50,12 @@
                 <th scope="col">Telefone</th>
                 <th scope="col">Data de Cadastro</th>
                 <th scope="col">Data de Alteração</th>
-
             </tr>
         </thead>
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (ParceiroModel parceiro in Model)
+                foreach (var parceiro in Model)
                 {
                     <tr>
                         <th scope="row">@parceiro.Id</th>
