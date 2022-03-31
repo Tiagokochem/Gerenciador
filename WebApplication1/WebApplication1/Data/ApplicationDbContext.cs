@@ -11,5 +11,6 @@ public class ApplicationDbContext : IdentityDbContext
     { }
 
     public DbSet<ParceiroModel> Parceiros { get; set; }
+    public DbSet<UsuarioModel> Usuarios { get; set; }   
 
 }

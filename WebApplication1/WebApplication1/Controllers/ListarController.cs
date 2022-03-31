@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using WebApplication1.Models;
 using WebApplication1.Repositorio;
 
 namespace WebApplication1.Controllers
 {
+    [Authorize]
     public class ListarController : Controller
     {
         private readonly IListarRepositorio _listarRepositorio;

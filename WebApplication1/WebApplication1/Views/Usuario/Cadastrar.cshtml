@@ -1,0 +1,51 @@
+﻿@using WebApplication1.Enums
+@model UsuarioModel
+@{
+    ViewData["Title"] = "Cadastrar um novo Usuário";
+}
+
+
+<div class="text">
+
+    <h1 class="display-4">Cadastrar um usuário</h1>
+    <div>
+
+        <form asp-controller="Usuario" asp-action="Cadastrar" method="post">
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="Text" asp-for="Email" class="form-control" aria-describedby="emailHelp" placeholder="Insira o e-mail">
+                <small id="emailHelp" class="form-text text-muted">Digite seu melhor e-mail.</small>
+                @Html.ValidationMessageFor(x=> x.Email)
+            </div>
+            <br />
+         
+            <div class="form-group">
+                <label for="Nome">Nome</label>
+                <input type="Text" asp-for="Nome" class="form-control" placeholder="Nome">
+                @Html.ValidationMessageFor(x=> x.Nome)
+            </div>
+            <br />
+            <div class="form-group">
+                <label for="Login">Login</label>
+                <input type="Text" asp-for="Login" class="form-control" placeholder="Login">
+                @Html.ValidationMessageFor(x=> x.Login)
+            </div>
+             <br />
+            <div class="form-group">
+                <label for="Perfil" class="form-label">Perfil</label>
+                <select asp-for="Perfil" class="form-control">
+                    <option value="0">Selecione</option>
+                    <option value="@PerfilEnum.Admin">Administrador</option>
+                    <option value="@PerfilEnum.Padrao">Padrão</option>
+                </select>
+            </div>
+             <br />
+            <div class="form-group">
+                <label for="Senha">Senha</label>
+                <input type="password" asp-for="Senha" class="form-control" placeholder="Senha">
+                @Html.ValidationMessageFor(x=> x.Senha)
+            </div>
+
+            <button type="submit" class="btn btn-primary">Adicionar</button>
+            <a class="btn btn-secondary" asp-controller="Listar" asp-action="index" role="button">Voltar</a>
+        </form>

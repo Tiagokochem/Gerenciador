@@ -24,6 +24,7 @@ namespace WebApplication1.Repositorio
 
         public ParceiroModel Adicionar(ParceiroModel parceiro)
         {
+            parceiro.DataDeCadastro = DateTime.Now;
             _applicationDbContext.Parceiros.Add(parceiro);
             _applicationDbContext.SaveChanges();
 
@@ -44,6 +45,7 @@ namespace WebApplication1.Repositorio
             parceiroDB.ParceiroCidade = parceiro.ParceiroCidade;
             parceiroDB.ParceiroEstado = parceiro.ParceiroEstado;
             parceiroDB.ParceiroTelefone = parceiro.ParceiroTelefone;
+            parceiroDB.DataDeAlteracao = DateTime.Now;
 
             _applicationDbContext.Parceiros.Update(parceiroDB);
             _applicationDbContext.SaveChanges();
