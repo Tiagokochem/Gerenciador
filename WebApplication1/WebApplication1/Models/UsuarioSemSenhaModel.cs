@@ -3,7 +3,7 @@ using WebApplication1.Enums;
 
 namespace WebApplication1.Models
 {
-    public class UsuarioModel
+    public class UsuarioSemSenhaModel
     {
         public int Id { get; set; }
         [Required(ErrorMessage = "Digite o nome do usuário")]
@@ -20,7 +20,5 @@ namespace WebApplication1.Models
         [Required(ErrorMessage = "Informe o perfil do  usuário")]
         public PerfilEnum? Perfil { get; set; }
 
-        [Required(ErrorMessage = "Digite a senha do usuário")]
-        public string Senha { get; set; }
     }
 }
