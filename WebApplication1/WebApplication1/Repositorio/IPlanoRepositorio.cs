@@ -5,7 +5,7 @@ namespace WebApplication1.Repositorio
     public interface IListarRepositorio
     {
         ParceiroModel ListarPorId(int id);
-        List<PlanoModel> ListarTodos();
+        List<ParceiroModel> ListarTodos();
         ParceiroModel Adicionar(ParceiroModel parceiro);
 
         ParceiroModel Atualizar(ParceiroModel parceiro);

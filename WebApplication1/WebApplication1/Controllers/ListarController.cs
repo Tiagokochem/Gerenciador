@@ -5,7 +5,6 @@ using WebApplication1.Repositorio;
 
 namespace WebApplication1.Controllers
 {
-    [Authorize]
     public class ListarController : Controller
     {
         private readonly IListarRepositorio _listarRepositorio;

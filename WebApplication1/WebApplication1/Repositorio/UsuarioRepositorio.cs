@@ -11,7 +11,10 @@ namespace WebApplication1.Repositorio
         {
             _applicationDbContext = applicationDbContext;
         }
-
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _applicationDbContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper()) ;
+        }
         public UsuarioModel ListarPorId(int id)
         {
             return _applicationDbContext.Usuarios.FirstOrDefault(x => x.Id == id);
@@ -60,5 +63,7 @@ namespace WebApplication1.Repositorio
             return true;
 
         }
+
+        
     }
 }

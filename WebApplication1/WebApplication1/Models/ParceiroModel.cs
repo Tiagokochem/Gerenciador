@@ -57,4 +57,9 @@ public class ParceiroModel
     [DataType(DataType.Text)]
     [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
     public DateTime? DataDeAlteracao { get; set; } = DateTime.Now;
+
+    public int PlanoId { get; set; }
+
+    public virtual Plano Plano { get; set; }
+
 }
