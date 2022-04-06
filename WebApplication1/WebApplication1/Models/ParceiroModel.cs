@@ -5,7 +5,7 @@ namespace WebApplication1.Models;
 
 [Table("Parceiros")]
 
-public class ParceiroModel
+public class PlanoModel
 {
     public int Id { get; set; }
     [Display(Name = "Nome")]

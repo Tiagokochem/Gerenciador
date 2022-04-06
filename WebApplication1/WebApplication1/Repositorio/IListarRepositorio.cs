@@ -4,11 +4,11 @@ namespace WebApplication1.Repositorio
 {
     public interface IListarRepositorio
     {
-        ParceiroModel ListarPorId(int id);
+        PlanoModel ListarPorId(int id);
         List<PlanoModel> ListarTodos();
-        ParceiroModel Adicionar(ParceiroModel parceiro);
+        PlanoModel Adicionar(PlanoModel plano);
 
-        ParceiroModel Atualizar(ParceiroModel parceiro);
+        PlanoModel Atualizar(PlanoModel plano);
 
         bool Apagar(int id);
 

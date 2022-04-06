@@ -17,3 +17,5 @@ namespace WebApplication1.Controllers
             List<PlanoModel> planos = _listarRepositorio.ListarTodos();
             return View(parceiros);
         }
+    }
+}

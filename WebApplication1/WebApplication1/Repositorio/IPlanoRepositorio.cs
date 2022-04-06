@@ -2,13 +2,13 @@
 
 namespace WebApplication1.Repositorio
 {
-    public interface IListarRepositorio
+    public interface IPlanorRepositorio
     {
-        ParceiroModel ListarPorId(int id);
-        List<ParceiroModel> ListarTodos();
-        ParceiroModel Adicionar(ParceiroModel parceiro);
+        PlanoModel ListarPorId(int id);
+        List<PlanoModel> ListarTodos();
+        PlanoModel Adicionar(PlanoModel plano);
 
-        ParceiroModel Atualizar(ParceiroModel parceiro);
+        PlanoModel Atualizar(PlanoModel plano);
 
         bool Apagar(int id);
 

@@ -10,7 +10,8 @@ public class ApplicationDbContext : IdentityDbContext
         : base(options)
     { }
 
-    public DbSet<ParceiroModel> Parceiros { get; set; }
+    public DbSet<PlanoModel> Planos { get; set; }
     public DbSet<UsuarioModel> Usuarios { get; set; }   
+
 
 }

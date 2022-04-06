@@ -12,54 +12,48 @@ namespace WebApplication1.Repositorio
             _applicationDbContext = applicationDbContext;
         }
 
-        public ParceiroModel ListarPorId(int id)
+        public PlanoModel ListarPorId(int id)
         {
-            return _applicationDbContext.Parceiros.FirstOrDefault(x => x.Id == id);
+            return _applicationDbContext.Planos.FirstOrDefault(x => x.Id == id);
         }
 
-        public List<ParceiroModel> ListarTodos()
+        public List<PlanoModel> ListarTodos()
         {
-            return _applicationDbContext.Parceiros.ToList();
+            return _applicationDbContext.Planos.ToList();
         }
 
-        public ParceiroModel Adicionar(ParceiroModel parceiro)
+        public PlanoModel Adicionar(PlanoModel parceiro)
         {
             parceiro.DataDeCadastro = DateTime.Now;
-            _applicationDbContext.Parceiros.Add(parceiro);
+            _applicationDbContext.Planos.Add(parceiro);
             _applicationDbContext.SaveChanges();
 
             return parceiro;
         }
 
-        public ParceiroModel Atualizar(ParceiroModel parceiro)
+        public PlanoModel Atualizar(PlanoModel plano)
         {
-            ParceiroModel parceiroDB = ListarPorId(parceiro.Id);
+            PlanoModel planoDB = ListarPorId(plano.Id);
 
-            if (parceiroDB == null) throw new System.Exception("Houve um erro na atualização do contato!");
+            if (planoDB == null) throw new System.Exception("Houve um erro na atualização do contato!");
 
-            parceiroDB.ParceiroNome = parceiro.ParceiroNome;
-            parceiroDB.ParceiroFantasia = parceiro.ParceiroFantasia;
-            parceiroDB.ParceiroRazaoSocial = parceiro.ParceiroRazaoSocial;
-            parceiroDB.Email = parceiro.Email;
-            parceiroDB.ParceiroCep = parceiro.ParceiroCep;
-            parceiroDB.ParceiroCidade = parceiro.ParceiroCidade;
-            parceiroDB.ParceiroEstado = parceiro.ParceiroEstado;
-            parceiroDB.ParceiroTelefone = parceiro.ParceiroTelefone;
-            parceiroDB.DataDeAlteracao = DateTime.Now;
+            planoDB.ParceiroNome = plano.ParceiroNome;
 
-            _applicationDbContext.Parceiros.Update(parceiroDB);
+            planoDB.DataDeAlteracao = DateTime.Now;
+
+            _applicationDbContext.Planos.Update(planoDB);
             _applicationDbContext.SaveChanges();
 
-            return parceiroDB;
+            return planoDB;
         }
 
         public bool Apagar(int id)
         {
-            ParceiroModel parceiroDB = ListarPorId(id);
+            PlanoModel planoDB = ListarPorId(id);
 
-            if (parceiroDB == null) throw new System.Exception("Houve um erro na tentativa de apagar o contato!");
+            if (planoDB == null) throw new System.Exception("Houve um erro na tentativa de apagar o contato!");
 
-            _applicationDbContext.Parceiros.Remove(parceiroDB);
+            _applicationDbContext.Planos.Remove(planoDB);
             _applicationDbContext.SaveChanges();
 
             return true;
