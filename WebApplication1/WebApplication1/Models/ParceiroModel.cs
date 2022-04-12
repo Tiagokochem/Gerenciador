@@ -5,9 +5,10 @@ namespace WebApplication1.Models;
 
 [Table("Parceiros")]
 
-public class PlanoModel
+public class ParceiroModel
 {
-    public int Id { get; set; }
+    public int ParceiroId { get; set; }
+
     [Display(Name = "Nome")]
     [Required]
     [StringLength(100)]
@@ -57,9 +58,7 @@ public class PlanoModel
     [DataType(DataType.Text)]
     [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
     public DateTime? DataDeAlteracao { get; set; } = DateTime.Now;
-
     public int PlanoId { get; set; }
-
-    public virtual Plano Plano { get; set; }
+    public virtual PlanoModel Plano { get; set; }
 
 }

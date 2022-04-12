@@ -14,7 +14,7 @@ namespace WebApplication1.Controllers
         }
         public IActionResult Index()
         {
-            List<PlanoModel> parceiros = _listarRepositorio.ListarTodos();
+            List<ParceiroModel> parceiros = _listarRepositorio.ListarTodos();
             return View(parceiros);
         }
 
@@ -25,13 +25,13 @@ namespace WebApplication1.Controllers
 
         public IActionResult Editar(int Id)
         {
-            PlanoModel parceiro = _listarRepositorio.ListarPorId(Id);
+            ParceiroModel parceiro = _listarRepositorio.ListarPorId(Id);
             return View(parceiro);
         }
 
         public IActionResult ApagarConfirmacao(int Id)
         {
-            PlanoModel parceiro = _listarRepositorio.ListarPorId(Id);
+            ParceiroModel parceiro = _listarRepositorio.ListarPorId(Id);
             return View(parceiro);
         }
 
@@ -52,7 +52,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Cadastrar(PlanoModel parceiro)
+        public IActionResult Cadastrar(ParceiroModel parceiro)
         {
             try
             {
@@ -72,7 +72,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult Alterar(PlanoModel parceiro)
+        public IActionResult Alterar(ParceiroModel parceiro)
         {
             try
             {

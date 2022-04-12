@@ -5,7 +5,7 @@ namespace WebApplication1.Models
 {
     public class UsuarioModel
     {
-        public int Id { get; set; }
+        public int UsuarioId { get; set; }
         [Required(ErrorMessage = "Digite o nome do usuário")]
 
         public string Nome { get; set; }

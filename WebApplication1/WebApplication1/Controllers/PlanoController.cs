@@ -7,15 +7,15 @@ namespace WebApplication1.Controllers
 {
     public class PlanoController : Controller
     {
-        private readonly IListarRepositorio _listarRepositorio;
-        public PlanoController(IListarRepositorio listarRepositorio)
+        private readonly IPlanorRepositorio _planoRepositorio;
+        public PlanoController(IPlanorRepositorio planoRepositorio)
         {
-            _listarRepositorio = listarRepositorio;
+            _planoRepositorio = planoRepositorio;
         }
         public IActionResult Index()
         {
-            List<PlanoModel> planos = _listarRepositorio.ListarTodos();
-            return View(parceiros);
+            List<PlanoModel> planos = _planoRepositorio.ListarTodos();
+            return View(planos);
         }
     }
 }

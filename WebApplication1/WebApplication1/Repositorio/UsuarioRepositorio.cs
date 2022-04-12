@@ -17,7 +17,7 @@ namespace WebApplication1.Repositorio
         }
         public UsuarioModel ListarPorId(int id)
         {
-            return _applicationDbContext.Usuarios.FirstOrDefault(x => x.Id == id);
+            return _applicationDbContext.Usuarios.FirstOrDefault(x => x.UsuarioId == id);
         }
 
         public List<UsuarioModel> ListarTodos()
@@ -35,7 +35,7 @@ namespace WebApplication1.Repositorio
 
         public UsuarioModel Atualizar(UsuarioModel usuario)
         {
-            UsuarioModel usuarioDb = ListarPorId(usuario.Id);
+            UsuarioModel usuarioDb = ListarPorId(usuario.UsuarioId);
 
             if (usuarioDb == null) throw new System.Exception("Houve um erro na atualização do usuário!");
 

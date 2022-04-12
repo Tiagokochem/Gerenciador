@@ -12,52 +12,54 @@ namespace WebApplication1.Repositorio
             _applicationDbContext = applicationDbContext;
         }
 
-        public PlanoModel ListarPorId(int id)
+        public ParceiroModel ListarPorId(int id)
         {
-            return _applicationDbContext.Planos.FirstOrDefault(x => x.Id == id);
+            return _applicationDbContext.Parceiro.FirstOrDefault(x => x.ParceiroId == id);
         }
 
-        public List<PlanoModel> ListarTodos()
+        public List<ParceiroModel> ListarTodos()
         {
-            return _applicationDbContext.Planos.ToList();
+            
+            return _applicationDbContext.Parceiro.ToList();
         }
 
-        public PlanoModel Adicionar(PlanoModel parceiro)
+        public ParceiroModel Adicionar(ParceiroModel parceiro)
         {
             parceiro.DataDeCadastro = DateTime.Now;
-            _applicationDbContext.Planos.Add(parceiro);
+            _applicationDbContext.Parceiro.Add(parceiro);
             _applicationDbContext.SaveChanges();
 
             return parceiro;
         }
 
-        public PlanoModel Atualizar(PlanoModel plano)
+        public ParceiroModel Atualizar(ParceiroModel parceiro)
         {
-            PlanoModel planoDB = ListarPorId(plano.Id);
+            ParceiroModel parceiroDb = ListarPorId(parceiro.ParceiroId);
 
-            if (planoDB == null) throw new System.Exception("Houve um erro na atualização do contato!");
+            if (parceiroDb == null) throw new System.Exception("Houve um erro na atualização do contato!");
 
-            planoDB.ParceiroNome = plano.ParceiroNome;
+            parceiroDb.ParceiroNome = parceiro.ParceiroNome;
 
-            planoDB.DataDeAlteracao = DateTime.Now;
+            parceiroDb.DataDeAlteracao = DateTime.Now;
 
-            _applicationDbContext.Planos.Update(planoDB);
+            _applicationDbContext.Parceiro.Update(parceiroDb);
             _applicationDbContext.SaveChanges();
 
-            return planoDB;
+            return parceiroDb;
         }
 
         public bool Apagar(int id)
         {
-            PlanoModel planoDB = ListarPorId(id);
+            ParceiroModel parceiroDb = ListarPorId(id);
 
-            if (planoDB == null) throw new System.Exception("Houve um erro na tentativa de apagar o contato!");
+            if (parceiroDb == null) throw new System.Exception("Houve um erro na tentativa de apagar o contato!");
 
-            _applicationDbContext.Planos.Remove(planoDB);
+            _applicationDbContext.Parceiro.Remove(parceiroDb);
             _applicationDbContext.SaveChanges();
 
             return true;
 
         }
+
     }
 }

@@ -84,7 +84,7 @@ namespace WebApplication1.Controllers
 
                     usuario = new UsuarioModel()
                     {
-                        Id = usuarioSemSenhaModel.Id,
+                        UsuarioId = usuarioSemSenhaModel.Id,
                         Nome = usuarioSemSenhaModel.Nome,
                         Login = usuarioSemSenhaModel.Login,
                         Email = usuarioSemSenhaModel.Email,
