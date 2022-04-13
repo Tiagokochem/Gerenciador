@@ -1,6 +1,5 @@
 ﻿using WebApplication2.Models;
 using Microsoft.EntityFrameworkCore;
-using WebApplication1.Models;
 
 namespace WebApplication2.Context;
 
@@ -12,4 +11,7 @@ public class AppDbContext : DbContext
     }
 
     public DbSet<PlanoModel> Planos { get; set; }
+
+    public DbSet<ParceiroModel> Parceiros { get; set; }
+
 }
