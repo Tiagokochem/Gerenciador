@@ -1,31 +1,32 @@
-﻿using WebApplication2.Data;
-using WebApplication2.Models;
+﻿using WebApplication2.Models;
 using System;
+using WebApplication2.Context;
 
 namespace WebApplication2.Repositorio.Interfaces
 {
-    public class PlanoRepositorio : IPlanorRepositorio
+    public class PlanoRepositorio : IPlanoRepositorio
     {
-        private readonly AppDbContext _AppDbContext;
-        public PlanoRepositorio(ApplicationDbContext applicationDbContext)
-        {
-            _applicationDbContext = applicationDbContext;
-        }
 
-        public PlanoModel ListarPorId(int id)
+        private readonly AppDbContext _context;
+
+        public PlanoRepositorio(AppDbContext context)
         {
-            return _applicationDbContext.Plano.FirstOrDefault(x => x.PlanoId == id);
+            _context = context;
+        }
+        public PlanoModel ListarPorId(int planoid)
+        {
+            return _context.Planos.FirstOrDefault(x => x.PlanoId == planoid);
         }
 
         public List<PlanoModel> ListarTodos()
         {
-            return _applicationDbContext.Plano.ToList();
+            return _context.Planos.ToList();
         }
 
         public PlanoModel Adicionar(PlanoModel plano)
         {
-            _applicationDbContext.Plano.Add(plano);
-            _applicationDbContext.SaveChanges();
+            _context.Planos.Add(plano);
+            _context.SaveChanges();
 
             return plano;
         }
@@ -40,43 +41,24 @@ namespace WebApplication2.Repositorio.Interfaces
             planoDB.PrecoPlano = plano.PrecoPlano;
             planoDB.TermoDeUso = plano.TermoDeUso;
             planoDB.tipoPlano = plano.tipoPlano;
-            _applicationDbContext.Plano.Update(planoDB);
-            _applicationDbContext.SaveChanges();
+            _context.Planos.Update(planoDB);
+            _context.SaveChanges();
 
             return planoDB;
         }
 
-        public bool Apagar(int id)
+        public bool Apagar(int Planoid)
         {
-            PlanoModel planoDB = ListarPorId(id);
+            PlanoModel planoDB = ListarPorId(Planoid);
 
             if (planoDB == null) throw new System.Exception("Houve um erro na tentativa de apagar o contato!");
 
-            _applicationDbContext.Plano.Remove(planoDB);
-            _applicationDbContext.SaveChanges();
+            _context.Planos.Remove(planoDB);
+            _context.SaveChanges();
 
             return true;
 
         }
 
-        PlanoModel IPlanorRepositorio.ListarPorId(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        List<PlanoModel> IPlanorRepositorio.ListarTodos()
-        {
-            throw new NotImplementedException();
-        }
-
-        public PlanoModel Adicionar(PlanoModel plano)
-        {
-            throw new NotImplementedException();
-        }
-
-        public PlanoModel Atualizar(PlanoModel plano)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

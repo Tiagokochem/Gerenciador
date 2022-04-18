@@ -6,6 +6,7 @@ namespace WebApplication2.Models;
 
 public class PlanoModel
 {
+    [Key]
     public int PlanoId { get; set; }
     [Display(Name = "Nome do plano")]
     [Required]

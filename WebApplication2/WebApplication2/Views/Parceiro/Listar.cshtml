@@ -1,0 +1,95 @@
+﻿@model IEnumerable<WebApplication2.Models.ParceiroModel>
+
+@{
+    ViewData["Title"] = "Listar";
+}
+
+<h1>Listar</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroNome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroFantasia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroRazaoSocial)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroCep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroCidade)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroEstado)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroTelefone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeCadastro)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataDeAlteracao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ParceiroAtivo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroNome)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroFantasia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroRazaoSocial)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroCep)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroCidade)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroEstado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroTelefone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeCadastro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataDeAlteracao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParceiroAtivo)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.ParceiroId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.ParceiroId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.ParceiroId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

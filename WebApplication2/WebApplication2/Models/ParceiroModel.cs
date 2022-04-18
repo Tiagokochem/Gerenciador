@@ -7,6 +7,7 @@ namespace WebApplication2.Models;
 
 public class ParceiroModel
 {
+    [Key]
     public int ParceiroId { get; set; }
 
     [Display(Name = "Nome")]
@@ -58,6 +59,8 @@ public class ParceiroModel
     [DataType(DataType.Text)]
     [DisplayFormat(DataFormatString = "{0: dd/MM/yyyy hh:mm}", ApplyFormatInEditMode = true)]
     public DateTime? DataDeAlteracao { get; set; } = DateTime.Now;
+
+    public bool ParceiroAtivo { get; set; }
 
     public virtual List<PlanoModel> Planos { get; set; }
 

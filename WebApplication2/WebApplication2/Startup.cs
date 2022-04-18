@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using WebApplication2.Context;
+using WebApplication2.Repositorio;
+using WebApplication2.Repositorio.Interfaces;
 
 namespace WebApplication2;
 public class Startup
@@ -16,6 +18,10 @@ public class Startup
     {
         services.AddDbContext<AppDbContext>(options =>
         options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
+        services.AddTransient<IParceiroRepositorio, ParceiroRepositorio>();
+        services.AddTransient<IPlanoRepositorio, PlanoRepositorio>();
+
         services.AddControllersWithViews();
     }
 

@@ -2,7 +2,7 @@
 
 namespace WebApplication2.Repositorio
 {
-    public interface IPlanorRepositorio
+    public interface IPlanoRepositorio
     {
         PlanoModel ListarPorId(int id);
         List<PlanoModel> ListarTodos();
