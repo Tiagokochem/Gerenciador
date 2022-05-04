@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Listagem de Parceiros";
+}
+
+<div class="text-center">
+
+    <hi class="display-4">Cadastrar Parceiros</hi>
+
+</div>
+
+<form>
+  <div class="form-group">
+    <label for="Nome">Nome</label>
+    <input type="text" class="form-control"  placeholder="Digite seu contato">
+  </div>
+
+  <div class="form-group">
+    <label for="email">E-mail</label>
+    <input type="text" class="form-control"  placeholder="Digite seu e-mail do contato">
+  </div>
+
+  <div class="form-group">
+    <label for="celular">Celular</label>
+    <input type="text" class="form-control"  placeholder="Digite seu o celular do contato">
+  </div>
+  
+  <button type="submit" class="btn btn-primary bnt-block">Adicionar</button>
+  <a class="btn btn-secondary bnt-block" asp-controller="Contato" asp-action="Index" role="button">Voltar</a>
+</form>
