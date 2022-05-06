@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Site.Models;
 using Site.Repositorio;
+using System;
+
 
 namespace Site.Controllers
 {
@@ -23,17 +25,23 @@ namespace Site.Controllers
             return View();
         }
 
-        public IActionResult Editar(int id)
+        public IActionResult Editar(int Id)
         {
-            ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+            ContatoModel contato = _contatoRepositorio.ListarPorId(Id);
             return View(contato);
         }
 
-        public IActionResult ApagarConfirmacao(int id)
+        public IActionResult ApagarConfirmacao(int Id)
         {
-            ContatoModel contato = _contatoRepositorio.ListarPorId(id);
+            ContatoModel contato = _contatoRepositorio.ListarPorId(Id);
 
             return View(contato);
+        }
+
+        public IActionResult Apagar(int Id)
+        {
+            _contatoRepositorio.Apagar(Id);
+            return RedirectToAction("Index");
         }
 
         [HttpPost]
@@ -49,5 +57,7 @@ namespace Site.Controllers
             _contatoRepositorio.Atualizar(contato);
             return RedirectToAction("Index");
         }
+
+       
     }
 }
