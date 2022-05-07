@@ -69,7 +69,7 @@ namespace Site.Controllers
         [HttpPost]
         public IActionResult Alterar(ContatoModel contato)
         {
-            if (ModelState.IsValid)
+            try
             {
                 if (ModelState.IsValid)
                 {
