@@ -10,7 +10,7 @@ namespace Site.Repositorio
         private readonly BancoContext _context;
         public ContatoRepositorio(BancoContext bancoContext)
         {
-            _context = bancoContext;
+            this._context = bancoContext;
         }
 
         public ContatoModel ListarPorId(int id)
