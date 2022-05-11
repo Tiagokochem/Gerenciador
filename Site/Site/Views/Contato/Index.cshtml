@@ -1,13 +1,12 @@
 ﻿@model List<ContatoModel>
-
 @{
-    ViewData["Title"] = "Listagem de Parceiros";
+    ViewData["Title"] = "Listagem de Contatos";
 }
 
 <div class="text-center">
 
     <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-        <a class="btn btn-primary" role="button" asp-controller="Contato" asp-action="Criar">Adicionar novo contato</a>
+        <a class="btn btn-primary" asp-controller="Contato" asp-action="Criar" role="button">Adicionar novo contato</a>
     </div>
 
     <br />
@@ -15,30 +14,29 @@
     @if (TempData["MensagemSucesso"] != null)
     {
         <div class="alert alert-success" role="alert">
-            <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
             @TempData["MensagemSucesso"]
         </div>
-
     }
 
-    @if(TempData["MensagemErro"] != null)
+    @if (TempData["MensagemErro"] != null)
     {
-    <div class="alert alert-danger" role="alert">
-        <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
-        @TempData["MensagemErro"]    
-    </div>
+        <div class="alert alert-danger" role="alert">
+            <button type="button" class="btn btn-danger btn-sm close-alert" data-bs-dismiss="alert" aria-label="Close">X</button>
+            @TempData["MensagemErro"]
+        </div>
     }
 
     <br />
 
-    <hi class="display-4">Listagem de contatos</hi>
+    <h1 class="display-4">Listagem de contatos</h1>
 
-    <table class="table">
+    <table id="table-contatos" class="display" style="width:100%">
         <thead>
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Nome</th>
-                <th scope="col">E-mail</th>
+                <th scope="col">Email</th>
                 <th scope="col">Celular</th>
                 <th scope="col"></th>
             </tr>
@@ -46,7 +44,7 @@
         <tbody>
             @if (Model != null && Model.Any())
             {
-                foreach (ContatoModel contato in Model)
+                foreach (var contato in Model)
                 {
                     <tr>
                         <th scope="row">@contato.Id</th>
@@ -55,12 +53,16 @@
                         <td>@contato.Celular</td>
                         <td>
                             <div class="btn-group" role="group">
-                                <a role="button" type="button" class="btn btn-primary" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="Editar">Editar</a>
-                                <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="ApagarConfirmacao">>Apagar</a>
+                                <a role="button" asp-action="Editar" asp-controller="Contato" asp-route-id="@contato.Id" class="btn btn-primary">Editar</a>
+                                <a role="button" asp-action="ApagarConfirmacao" asp-controller="Contato" asp-route-id="@contato.Id" class="btn btn-danger">Apagar</a>
                             </div>
                         </td>
                     </tr>
                 }
+            }
+            else
+            {
+                <tr class="odd"><td valign="top" colspan="5">Nenhum contato encontrado</td></tr>
             }
         </tbody>
     </table>
