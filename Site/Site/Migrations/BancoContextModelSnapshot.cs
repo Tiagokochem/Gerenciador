@@ -9,7 +9,7 @@ using Site.Data;
 
 namespace Site.Migrations
 {
-    [DbContext(typeof(BancoContext))]
+    [DbContext(typeof(BancoContent))]
     partial class BancoContextModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -4,7 +4,7 @@ using Site.Repositorio;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
-namespace ControleDeContatos.Controllers
+namespace Site.Controllers
 {
     public class LoginController : Controller
     {

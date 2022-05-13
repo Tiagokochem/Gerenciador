@@ -10,7 +10,7 @@ using Site.Data;
 
 namespace Site.Migrations
 {
-    [DbContext(typeof(BancoContext))]
+    [DbContext(typeof(BancoContent))]
     [Migration("20220504100718_CriandoTabelaContatos")]
     partial class CriandoTabelaContatos
     {

@@ -1,26 +1,30 @@
 ﻿using Site.Data;
 using Site.Models;
 using System;
-
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Site.Repositorio
 {
     public class ContatoRepositorio : IContatoRepositorio
     {
-        private readonly BancoContext _context;
-        public ContatoRepositorio(BancoContext bancoContext)
+        private readonly BancoContent _context;
+
+        public ContatoRepositorio(BancoContent bancoContent)
         {
-            this._context = bancoContext;
+            this._context = bancoContent;
         }
 
-        public ContatoModel ListarPorId(int id)
+        public ContatoModel BuscarPorID(int id)
         {
             return _context.Contatos.FirstOrDefault(x => x.Id == id);
         }
+
         public List<ContatoModel> BuscarTodos()
         {
             return _context.Contatos.ToList();
         }
+
         public ContatoModel Adicionar(ContatoModel contato)
         {
             _context.Contatos.Add(contato);
@@ -30,8 +34,9 @@ namespace Site.Repositorio
 
         public ContatoModel Atualizar(ContatoModel contato)
         {
-            ContatoModel contatoDB = ListarPorId(contato.Id);
-            if (contatoDB == null) throw new System.Exception("Houve um erro na atualização do contato");
+            ContatoModel contatoDB = BuscarPorID(contato.Id);
+
+            if (contatoDB == null) throw new Exception("Houve um erro na atualização do contato!");
 
             contatoDB.Nome = contato.Nome;
             contatoDB.Email = contato.Email;
@@ -45,14 +50,14 @@ namespace Site.Repositorio
 
         public bool Apagar(int id)
         {
-            ContatoModel contatoDB = ListarPorId(id);
-            if (contatoDB == null) throw new System.Exception("Houve um erro na deleção do contato");
+            ContatoModel contatoDB = BuscarPorID(id);
+
+            if (contatoDB == null) throw new Exception("Houve um erro na deleção do contato!");
 
             _context.Contatos.Remove(contatoDB);
             _context.SaveChanges();
 
             return true;
         }
-
     }
 }
