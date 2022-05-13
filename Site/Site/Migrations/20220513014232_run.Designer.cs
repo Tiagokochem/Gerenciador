@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Site.Data;
 
@@ -11,9 +12,10 @@ using Site.Data;
 namespace Site.Migrations
 {
     [DbContext(typeof(BancoContent))]
-    partial class BancoContextModelSnapshot : ModelSnapshot
+    [Migration("20220513014232_run")]
+    partial class run
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
