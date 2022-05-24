@@ -1,0 +1,28 @@
+﻿@model PlanoModel
+@{
+    ViewData["Title"] = "Criar contato";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Cadastrar Planos</h1>
+</div>
+
+
+<form asp-controller="Plano" asp-action="Criar" method="post">
+
+    <div class="form-group">
+        <label for="nome" class="form-label">Plano</label>
+        <input type="text" asp-for="Plano" class="form-control" placeholder="Digite o plano">
+        @Html.ValidationMessageFor(x => x.Plano)
+    </div>
+
+    <div class="form-group">
+        <label for="valor" class="form-label">Valor</label>
+        <input type="text" asp-for="Valor" class="form-control" placeholder="Digite o valor">
+        @Html.ValidationMessageFor(x => x.Valor)
+    </div>
+
+     <button type="submit" class="btn btn-primary btn-block">Adicionar</button>
+    <a class="btn btn-secondary btn-block" asp-action="Index" asp-controller="Plano" role="button">Voltar</a>
+
+</form>

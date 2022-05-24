@@ -1,0 +1,37 @@
+﻿@model PlanoModel
+
+@{
+    ViewData["Title"] = "Editar contato";
+}
+
+<div class="text-center">
+
+    <hi class="display-4">Editar Planos</hi>
+
+</div>
+
+<form asp-controller="Plano" asp-action="Alterar" method="post">
+
+    <input type="hidden" asp-for="Id" />
+ <div class="form-group">
+    <label for="Nome">Plano</label>
+    <input type="text" asp-for="Plano" class="form-control"  placeholder="Digite o plano">
+    
+  </div>
+
+    <div class="form-group">
+    <label for="valor">Valor</label>
+    <input type="double" asp-for="Plano" class="form-control"  placeholder="Digite o valor">
+    @Html.ValidationMessageFor(x=> x.Plano)
+  </div>
+
+  <div class="form-group">
+    <label for="valor">Valor</label>
+    <input type="double" asp-for="Valor" class="form-control"  placeholder="Digite o valor">
+    @Html.ValidationMessageFor(x=> x.Valor)
+  </div>
+
+    
+  <button type="submit" class="btn btn-primary bnt-block">Alterar</button>
+  <a class="btn btn-secondary bnt-block" asp-controller="Plano" asp-action="Index" role="button">Voltar</a>
+</form>

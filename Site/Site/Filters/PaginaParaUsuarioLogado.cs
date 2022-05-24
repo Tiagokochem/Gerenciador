@@ -21,7 +21,7 @@ namespace Site.Filters
             {
                 UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-                if(usuario == null)
+                if (usuario == null)
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
                 }

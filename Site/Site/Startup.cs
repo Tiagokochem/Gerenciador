@@ -33,6 +33,8 @@ namespace Site
 
             services.AddScoped<IContatoRepositorio, ContatoRepositorio>();
             services.AddScoped<IUsuarioRepositorio, UsuarioRepositorio>();
+            services.AddScoped<IPlanoRepositorio, PlanoRepositorio>();
+
             services.AddScoped<ISessao, Sessao>();
 
             services.AddSession(o =>

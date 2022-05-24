@@ -14,15 +14,23 @@
             <a class="nav-link text-dark" asp-area="" asp-controller="Contato" asp-action="Index">Contatos</a>
         </li>
 
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Plano" asp-action="Index">Planos</a>
+        </li>
+
+
         @if (Model.Perfil == Site.Enums.PerfilEnum.Admin)
         {
             <li class="nav-item">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Usuario" asp-action="Index">Usuários</a>
+                <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
             </li>
         }
 
-        <li class="nav-item">
-            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="Sair">Sair</a>
-        </li>
+
     </ul>
 </div>

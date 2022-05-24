@@ -21,12 +21,12 @@ namespace Site.Filters
             {
                 UsuarioModel usuario = JsonConvert.DeserializeObject<UsuarioModel>(sessaoUsuario);
 
-                if(usuario == null)
+                if (usuario == null)
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Login" }, { "action", "Index" } });
                 }
 
-                if(usuario.Perfil != Enums.PerfilEnum.Admin)
+                if (usuario.Perfil != Enums.PerfilEnum.Admin)
                 {
                     context.Result = new RedirectToRouteResult(new RouteValueDictionary { { "controller", "Restrito" }, { "action", "Index" } });
                 }

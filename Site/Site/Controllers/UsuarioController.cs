@@ -7,7 +7,7 @@ using System.Collections.Generic;
 
 namespace Site.Controllers
 {
-    //[PaginaRestritaSomenteAdmin]
+    [PaginaRestritaSomenteAdmin]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioRepositorio _usuarioRepositorio;
@@ -109,5 +109,37 @@ namespace Site.Controllers
                 return RedirectToAction("Index");
             }
         }
+
+        [HttpPost]
+        public IActionResult Teste(UsuarioModel usuario)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    usuario = _usuarioRepositorio.Adicionar(usuario);
+
+                    TempData["MensagemSucesso"] = "Usuário cadastrado com sucesso!";
+                    return RedirectToAction("Index");
+                }
+
+                return View(usuario);
+            }
+            catch (Exception erro)
+            {
+                TempData["MensagemErro"] = $"Ops, não conseguimos cadastrar seu usuário, tente novamante, detalhe do erro: {erro.Message}";
+                return RedirectToAction("Index");
+            }
+        }
+
+        public IActionResult List(string plano)
+        {
+            IEnumerable<PlanoModel> planos;
+
+            return View(plano);
+        }
+
+
+
     }
 }

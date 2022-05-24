@@ -9,6 +9,7 @@ namespace Site.Repositorio
         List<UsuarioModel> BuscarTodos();
         UsuarioModel BuscarPorID(int id);
         UsuarioModel Adicionar(UsuarioModel usuario);
+
         UsuarioModel Atualizar(UsuarioModel usuario);
         bool Apagar (int id);
     }
