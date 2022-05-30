@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Site.Models
 {
@@ -11,13 +12,11 @@ namespace Site.Models
 
         [Required(ErrorMessage = "Digite o valor")]
         public float Valor { get; set; }
-        public DateTime DataCadastro { get; set; }
-        public DateTime? DataAtualizacao { get; set; }
 
-        public int UsuarioId { get; set; }
+        [ForeignKey("UsuarioModel")]
+        public int UsuarioModelId { get; set; }
 
-
-        public virtual List<UsuarioModel> Usuarios { get; set; }
+        public UsuarioModel Usuario { get; set;  }
 
     }
 }

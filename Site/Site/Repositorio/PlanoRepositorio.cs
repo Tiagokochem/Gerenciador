@@ -32,8 +32,8 @@ namespace Site.Repositorio
 
         public PlanoModel Adicionar(PlanoModel plano)
         {
-            
-            plano.DataCadastro = DateTime.Now;
+            plano.Valor = plano.Valor;
+            plano.Plano = plano.Plano;
             _context.Planos.Add(plano);
             _context.SaveChanges();
             return plano;
@@ -47,8 +47,7 @@ namespace Site.Repositorio
 
             planoDB.Plano = plano.Plano;
             planoDB.Valor = plano.Valor;
-            planoDB.DataAtualizacao = DateTime.Now;
-
+          
             _context.Planos.Update(planoDB);
             _context.SaveChanges();
 

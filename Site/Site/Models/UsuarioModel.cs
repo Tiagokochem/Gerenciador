@@ -22,7 +22,7 @@ namespace Site.Models
         public DateTime DataCadastro { get; set; }
         public DateTime? DataAtualizacao { get; set; }
 
-        public PlanoModel listaplano { get; set; }
+        public ICollection<PlanoModel> Planos { get; set; }
 
         public bool SenhaValida(string senha)
         {

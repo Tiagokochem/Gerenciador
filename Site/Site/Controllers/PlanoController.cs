@@ -21,7 +21,7 @@ namespace Site.Controllers
         {
             List<PlanoModel> planos = _planoRepositorio.BuscarTodos();
 
-            return View(planos);
+            return  View(planos);
         }
 
         public IActionResult Criar()
