@@ -8,7 +8,7 @@ namespace ControleDeContatos.ViewComponents
 {
     public class Menu : ViewComponent
     {
-        public async Task<IViewComponentResult> InvokeAsync()
+        public /*async Task*/ IViewComponentResult InvokeAsync()
         {
             string sessaoUsuario = HttpContext.Session.GetString("sessaoUsuarioLogado");
 

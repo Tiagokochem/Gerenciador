@@ -79,18 +79,18 @@ namespace Site.Controllers
             }
 
             [HttpPost]
-            public IActionResult Editar(PlanoModel plano)
+            public IActionResult Editar(PlanoModel planos)
             {
                 try
                 {
                     if (ModelState.IsValid)
                     {
-                        plano = _planoRepositorio.Atualizar(plano);
+                        planos = _planoRepositorio.Atualizar(planos);
                         TempData["MensagemSucesso"] = "Contato alterado com sucesso!";
                         return RedirectToAction("Index");
                     }
 
-                    return View(plano);
+                    return View(planos);
                 }
                 catch (Exception erro)
                 {

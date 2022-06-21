@@ -134,7 +134,7 @@ namespace Site.Controllers
 
         public IActionResult List(string plano)
         {
-            IEnumerable<PlanoModel> planos;
+            //IEnumerable<PlanoModel> planos;
 
             return View(plano);
         }

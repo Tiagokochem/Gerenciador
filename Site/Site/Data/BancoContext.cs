@@ -1,5 +1,5 @@
-﻿using Site.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Site.Models;
 
 namespace Site.Data
 {
